@@ -1,0 +1,48 @@
+(1) Understand the multi.py program by reading and running it.
+
+(2) Answer the following preliminary questions (the answers must be included with your submission):
+
+a.explain the time difference between the serial and parallel functions
+
+The serial function is significantly faster for the first number set than the second.
+Then in the second number set the serial function is slightly slower than the parallel function.
+Then in the third number set the serial function is much slower than the parallel function.
+The reason there is a time difference between the two functions is because the parallel function
+is using a pool which maps processes to separate CPU cores and then combines them to one output.
+The serial function is only using one location for the input processing.
+
+b.explain why serial is faster in the first number_set and slower in the rest
+
+Serial is faster in the first number set and slower in the rest because in the
+first number set the values are much lower and the processing time to run a function
+on these values is not very high. Therefore adding multiprocessing does not help
+very much and actually slows down the processing time because of the time it takes
+setup the pool.
+
+c. What is the impact of changing Pool(size) to different values? Why? Does it even make a difference? Why?
+
+Changing the pool size to different values determines how many processes can execute in parallel.
+This would make a difference if there were more processes to run in parallel. However,
+given that this script is setup so that the amount of pools created depends on the length
+of input elements it does not make sense to change the pool size. If there were more processes
+to run in parallel it would make sense to increase the pool size.
+
+(3) Then, write two more functions, like parallel, and following it's pattern,
+that use other ways to attempt the work in parallel. Answer the questions in 2 above,
+but comparing serial and parallel to your two new functions.
+
+ I created parallel_2 which is a similar method to the original
+ parallel method however the number of pools being used are determined by the amount
+ of available cpu cores and not the elements. This function is slightly faster than
+ the original parallel function due to an optimized pool size. The function follows a similar
+ pattern as the original parallel function in that it is slower in the first
+ number set and faster in the next two.
+
+(4) Add a function that attempt to write the csv files in parallel.
+Compare your parallel approach to the save_serial approach.
+There is a function stub to help with printing.
+Note that the files must include the header and footer, like in save_serial.
+
+I created a new function for saving in parallel which uses the parallel_2 method
+of creating pools based on the number of cup cores available. This is significantly
+faster to save. 

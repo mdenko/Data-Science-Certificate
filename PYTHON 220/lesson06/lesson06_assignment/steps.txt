@@ -1,0 +1,17 @@
+Part 1
+
+- It originally took around 200 seconds for the poor performance script to run
+- I then ran a c profile to see which steps were taking the longest
+- I then noticed that it was the list comprehensions that were taking the longest
+- I then analyzed the existing script and noticed that the list comprehensions were redundant
+- I then modified the function to only run one list comprehension which slowed it down (but not fast enough)
+- I then created a function within the funtion to execute the list comprehension and it reduced the time to 1 sec (sys time)
+
+Part 2
+
+- I analyzed alice's file and noticed that it had two main parts
+- The first part is the timer (which she used to time her functions)
+- The second part is a class with an initialization and call
+- I then took the second part and incorporated it into the original alice.py script
+- This also reduced the sys time to 1 sec
+- The caller helps optimize the performance of the script by having an instance behave like a function

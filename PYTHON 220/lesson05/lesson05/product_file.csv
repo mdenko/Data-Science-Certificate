@@ -1,0 +1,11 @@
+product_id,description,product_type,quantity_avaiable
+1,Chair,Furniture,15
+2,Table,Furniture,2
+3,Bed,Furniture,20
+4,Spoon,Utencil,11
+5,Fork,Utencil,4
+6,Knive,Utencil,33
+7,Baseball,Sporting Good,10
+8,Football,Sporting Good,11
+9,Basektball,Sporting Good,5
+10,Soccer Ball,Sporting Good,7

@@ -1,0 +1,53 @@
+(base) Matthews-MacBook-Air:~ matthewdenko$ cd /Users/matthewdenko/Documents/new_python220_folder/py220_assignments/assignment_files/lesson02/assignment/src
+(base) Matthews-MacBook-Air:src matthewdenko$ ls
+charges_calc.py	mylog.log	source.json
+(base) Matthews-MacBook-Air:src matthewdenko$ python charges_calc.py --help
+Traceback (most recent call last):
+  File "charges_calc.py", line 59, in <module>
+    args = parse_cmd_arguments()
+  File "charges_calc.py", line 18, in parse_cmd_arguments
+    parser.add_argument('-i', 'source.json', help='input JSON file', required=True)
+  File "/opt/anaconda3/lib/python3.7/argparse.py", line 1339, in add_argument
+    kwargs = self._get_optional_kwargs(*args, **kwargs)
+  File "/opt/anaconda3/lib/python3.7/argparse.py", line 1470, in _get_optional_kwargs
+    raise ValueError(msg % args)
+ValueError: invalid option string 'source.json': must start with a character '-'
+(base) Matthews-MacBook-Air:src matthewdenko$ python charges_calc.py --help
+usage: charges_calc.py [-h] -i INPUT -o OUTPUT
+
+Process some integers.
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -i INPUT, --input INPUT
+                        input JSON file
+  -o OUTPUT, --output OUTPUT
+                        ouput JSON file
+(base) Matthews-MacBook-Air:src matthewdenko$ --input soure.json python charges_calc.py
+-bash: --input: command not found
+(base) Matthews-MacBook-Air:src matthewdenko$ -i INPUT source.json python charges_calc.py
+-bash: -i: command not found
+(base) Matthews-MacBook-Air:src matthewdenko$ python charges_calc.py -i INPUT source.json charges_calc.py
+usage: charges_calc.py [-h] -i INPUT -o OUTPUT
+charges_calc.py: error: the following arguments are required: -o/--output
+(base) Matthews-MacBook-Air:src matthewdenko$ python charges_calc.py -i INPUT source.json -o OUTPUT output.json  charges_calc.py
+usage: charges_calc.py [-h] -i INPUT -o OUTPUT
+charges_calc.py: error: unrecognized arguments: source.json output.json charges_calc.py
+(base) Matthews-MacBook-Air:src matthewdenko$ python charges_calc.py -i INPUT source.json -o OUTPUT output.json
+usage: charges_calc.py [-h] -i INPUT -o OUTPUT
+charges_calc.py: error: unrecognized arguments: source.json output.json
+(base) Matthews-MacBook-Air:src matthewdenko$ python charges_calc.py -i INPUT source.json charges_calc.py
+usage: charges_calc.py [-h] -i INPUT
+charges_calc.py: error: unrecognized arguments: source.json charges_calc.py
+(base) Matthews-MacBook-Air:src matthewdenko$ python charges_calc.py -i INPUT source.json
+usage: charges_calc.py [-h] -i INPUT
+charges_calc.py: error: unrecognized arguments: source.json
+(base) Matthews-MacBook-Air:src matthewdenko$ python charges_calc.py -i INPUT 'source.json'
+usage: charges_calc.py [-h] -i INPUT
+charges_calc.py: error: unrecognized arguments: source.json
+(base) Matthews-MacBook-Air:src matthewdenko$ -i INPUT, --input INPUT source.json
+-bash: -i: command not found
+(base) Matthews-MacBook-Air:src matthewdenko$ python charges_calc.py -i INPUT, --input INPUT source.json
+usage: charges_calc.py [-h] -i INPUT
+charges_calc.py: error: unrecognized arguments: source.json
+(base) Matthews-MacBook-Air:src matthewdenko$

@@ -1,0 +1,14 @@
+# poor perf
+
+(base) Matthews-MacBook-Air:lesson06_assignment matthewdenko$ time -p python  poor_perf.py
+real 0.06
+user 0.03
+sys 0.01
+
+
+# alice
+
+(base) Matthews-MacBook-Air:lesson06_assignment matthewdenko$ time -p python  alice.py
+real 0.05
+user 0.03
+sys 0.01
