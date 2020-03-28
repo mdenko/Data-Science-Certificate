@@ -1,0 +1,49 @@
+Business Requirements
+
+The business requirements to help ensure good quality diapers are:
+* Quality issues for diapers have negative impact on diaper manufacturing
+* The most important property of a diaper is the ability to absorb and retain moisture
+* Gel strength is related to the tendency of the polymer to deform or flow under stress
+o If the strength is too high, the polymer will not retain water
+o If the strength is too low, the polymer will absorb water too quickly
+* Optimizing the combinations of polymer and fibrous material is necessary to yield the most efficient absorbency possible
+* The absorbent pad is held in place by nonwoven fabric sheets
+* Nonwoven fabric sheets are usually made from plastic resins and are assembled by interlocking the plastic fibers
+* A dry laid process is typically used to make nonwoven diaper fabrics
+* There are a variety of other ancillary components, such as elastic threads, hot melt adhesives, strips of tape or other closures, and inks used for printing decorations.
+* The absorbent pad is formed on a movable conveyer belt that passes through a long "forming chamber."
+* At least two methods have been employed to incorporate absorbent polymers into the pad. 
+o Method 1: the polymer is injected into the same feed stock that supplies the fibers. This method is expensive and causes the pad to absorb unevenly
+o Method 2: this involves the application of the absorbent material onto the top surface of the pad after it has been formed. This method produces the absorbent materials on the top surface and does not have much absorbency throughout the pad
+* 3 sheets of nonwoven fabric are formed from plastic resin, the sheets are produced as a wide role which is then cut to the necessary width for diaper use
+* The absorbent pad, the top sheet, and the backing sheet are joined together by feeding the absorbent pad onto a conveyor with the polyethylene bottom sheet, which is then cut into individual diapers
+* Diaper production wastes a considerable amount of nonwoven material and polymer particles, steps need to be taken to limit the amount of this waste
+* There are several methods used to control the quality of disposable diapers, and most of these relate to the product's absorbency.
+o Too much variation in the polymer to fiber ratio in the absorbent pad will impact the diaper’s ability to soak up moisture
+o For optimal performance and cost, the fiber to particle ratio should be about 75:25 to 90:10
+o Particles with mass median particle size greater than or equal to 400 micros work very well with fibers to enhance the rate at which fluid is transported from the body. If particles vary outside this range, gel blocking may occur.
+* The Demand Wettability or Gravimetric Absorbance test is used to evaluate Absorbance Under Load (AUL)
+o AUL is defined as the amount of 0.9% saline solution absorbed the polymers while be subjected to pressure
+o This test simulates the effect of a baby sitting on a wet diaper
+* There are still a number of areas where diaper manufacturing requires improvement
+o It is likely that manufacturers will develop improved elastic bands to hold the waist more tightly without causing chafing or discomfort
+* It is also likely that concern over disposable diapers in landfills will have an impact on manufacturing  
+
+Data Needs
+
+The data needs to help ensure good quality diapers are:
+* The amount of polymer and fibrous material used in each diaper
+o Optimizing this ratio is key to achieving the best absorbency in diapers
+* What is the current gel strength, and what is the optimal strength production is trying to achieve
+o If the gel strength is not optimal then it will impact the ability to retain moisture
+* The type of Nonwoven fabric used in the current production process
+* The method used to incorporate absorbent polymers into the pad. 
+o This is important because the two methods each have their own drawbacks
+* The average amount of nonwoven material and polymer particles that are waisted in the current production
+o Reducing this can help limit costs of production, and can shift resources to optimizing other aspects of the diaper
+* How often the fiber to particle ratio is outside of 75:25 to 90:10
+o If the ratio varies outside of this interval, then the diapers ability to soak up this moisture is impacted
+* How often particles mass median size is less than 400 micros
+o Particles with size below 400 micros have an increased chance of gel blocking
+* The current median and average AUL scores for diapers in current production
+o This test measures the quality of a diaper and simulates the effect of a baby sitting on a wet diaper
