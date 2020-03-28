@@ -1,0 +1,150 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Sat Nov 17 12:22:24 2018
+
+@author: matt.denko
+"""
+
+	1.	Description of your Milestone 3 dataset (May be the same as Milestone 2)
+	◦	number of observations and attributes
+	
+	⁃	The dataset that I am using for Milestone 3 is the Adult data set from a 1994 Census database that was used as a prediction tasks to determine whether a person makes over 50K a year
+	⁃	There are 14 different attributes and a total of 48,842 total observations
+	◦	datatype, distribution, and a comment on each attribute
+	⁃	age
+	⁃	description: age of person surveyed 
+	⁃	datatype: int
+	⁃	distribution: skewed right
+	⁃	workclass
+	⁃	description: category of what type of job person surveyed had
+	⁃	datatype: object
+	⁃	fnlwgt
+	⁃	description: represents final weight, which is the number of units in the target population that the responding unit represents
+	⁃	datatype: int
+	⁃	distribution: skewed right
+	⁃	education
+	⁃	description: category of education level
+	⁃	datatype: object
+	⁃	education-num
+	⁃	description: numeric coding of education
+	⁃	datatype: int
+	⁃	distribution: skewed left
+	⁃	marital-status
+	⁃	description: category of marital history
+	⁃	datatype: object
+	⁃	occupation
+	⁃	description: category of job type
+	⁃	datatype: object
+	⁃	relationship
+	⁃	description: category of family relationship
+	⁃	datatype: object
+	⁃	race
+	⁃	description: ethnicity of person surveyed
+	⁃	datatype: object
+	⁃	sex
+	⁃	description: classifies whether respondent is male or female
+	⁃	datatype: object
+	⁃	capital-gain
+	⁃	description: gain on income from investment sources other than wage/salary
+	⁃	datatype: int
+	⁃	distribution: skewed right
+	⁃	capital-loss
+	⁃	description: loss on income from investment sources other than wage/salary
+	⁃	datatype: int
+	⁃	distribution: skewed right
+	⁃	hours-per-week
+	⁃	description: average hours worked per week for respondent
+	⁃	datatype: int
+	⁃	distribution: bi-modal
+	⁃	native-country
+	⁃	description: native country of respondent
+	⁃	datatype: int
+	⁃	>50K, <=50k
+	⁃	description: classifies whether or not respondent makes more that 50K annually
+	⁃	datatype:int
+	◦	
+	
+	Source citation for your data set
+	⁃	Dua, D. and Karra Taniskidou, E. (2017). UCI Machine Learning Repository [http://archive.ics.uci.edu/ml]. Irvine, CA: University of California, School of Information and Computer Science.
+	
+	
+	2.	Ask at least 1 yes-no or binary-choice question (Does it...? Is it...?)
+
+	Does hours per week correlate with capital gains?
+
+	3. Ask at least 1 non-binary question (What is...? How many...? When does...?)
+
+		What is the education level with the highest correlation with making >50k?
+
+	4. Perform a K-Means with sklearn using some or all of your attributes.
+	◦	Include at least one categorical column and one numeric attribute. 
+	◦	Normalize the attributes prior to K-Means.
+	◦	Add the cluster label to the dataset.
+
+	Python code:
+
+"import statements"
+
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+from sklearn.cluster import KMeans
+
+#------------------------------------------------------------------------------
+"loading the data set from my documents folder"
+
+url = "https://archive.ics.uci.edu/ml/machine-learning-databases/adult/adult.data"
+
+Adult= pd.read_csv(url, header=None)
+
+print(Adult)
+#------------------------------------------------------------------------------
+"Assigning reasonable column names"
+
+Adult.columns = ["age","workclass","fnlwgt","education","education-num","marital-status","occupation",
+                 "relationship","race","sex","capital-gain","capital-loss","hours-per-week","native-country",">50K, <=50k"]
+
+print(Adult)
+
+#------------------------------------------------------------------------------
+
+"Extracting and normalizing the columns"
+
+Age =  Adult.loc[:,"capital-gain"]
+Edu = Adult.loc[:,"education-num"]
+
+Age_zscaled = (Age - np.mean(Age))/np.std(Age)
+
+Edu_zscaled = np.array(Edu - np.mean(Edu))/np.std(Edu)
+
+x = pd.DataFrame()
+
+x.loc[:,0] = Age_zscaled
+x.loc[:,1] = Edu_zscaled
+
+ClusterCentroidGuesses = pd.DataFrame()
+ClusterCentroidGuesses.loc[:,0] = [-1,1]
+ClusterCentroidGuesses.loc[:,1] = [-1,1]
+
+
+def Plot2DKMeans(Points, Labels, ClusterCentroids, Title):
+    for LabelNumber in range(max(Labels)+1):
+        LabelFlag = Labels == LabelNumber
+        color =  ['c', 'm', 'y', 'b', 'g', 'r', 'c', 'm', 'y', 'b', 'g', 'r', 'c', 'm', 'y'][LabelNumber]
+        marker = ['s', 'o', 'v', '^', '<', '>', '8', 'p', '*', 'h', 'H', 'D', 'd', 'P', 'X'][LabelNumber]
+        plt.scatter(Points.loc[LabelFlag,0], Points.loc[LabelFlag,1],
+                    s= 100, c=color, edgecolors="black", alpha=0.3, marker=marker)
+        plt.scatter(ClusterCentroids.loc[LabelNumber,0], ClusterCentroids.loc[LabelNumber,1], s=200, c="black", marker=marker)
+    plt.title(Title)
+    plt.show()
+    
+"Doing the clustering"
+kmeans = KMeans(n_clusters=2, init=ClusterCentroidGuesses, n_init=1).fit(x)
+Labels = kmeans.labels_
+ClusterCentroids = pd.DataFrame(kmeans.cluster_centers_)
+
+Plot2DKMeans(x, Labels, ClusterCentroids, 'my cluster of capital gain vs education num')
+
+
+
